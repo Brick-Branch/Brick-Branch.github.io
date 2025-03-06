@@ -2,70 +2,86 @@
 <html>
 
 <head>
-
-<meta charset="UTF-8"/>
-
-<title>Eat Restaurant Bootstrap HTML5 Responsive Template</title>
-
-<meta name="description" content="Eat Restaurant Bootstrap Template">
-
-<meta name="author" content="webthemez">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/styles.css">
-
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<title>Relax Interior Free Bootstrap Responsive Website Template | Webthemez</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<link href="css/style.css" rel="stylesheet" type="text/css"> 
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css"> 
+<link href="css/animate.css" rel="stylesheet" type="text/css">
+ 
+<!--[if lt IE 9]>
+    <script src="js/respond-1.1.0.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/html5element.js"></script>
+<![endif]-->
 
 
+  <!-- Meta tags for character encoding, description, author, and viewport settings -->
+  <meta charset="UTF-8"/>
+  <title>Eat Restaurant Bootstrap HTML5 Responsive Template</title>
+  <meta name="description" content="Eat Restaurant Bootstrap Template">
+  <meta name="author" content="webthemez">
 
-  <!-- Additional CSS to style the testimonials section -->
+  <!-- Viewport settings for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Link to external stylesheets for Bootstrap, Font Awesome, Animations, and Custom Styles -->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Fonts for typography -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Additional CSS to style ONLY the testimonials section -->
   <style>
+    /* Testimonials Section Styling - ONLY for the testimonials area */
     #testimonials {
-      padding: 50px 0; 
-      background-color: #f9f9f9; 
-      text-align: center; 
+      padding: 50px 0;  /* Adds padding to the top and bottom */
+      background-color: #f9f9f9;  /* Light background color */
+      text-align: center;  /* Centers the content */
     }
 
+    /* Header Styling */
     #testimonials h2 {
-      font-size: 36px;  
-      font-weight: bold;  
-      margin-bottom: 20px;  
+      font-size: 36px;  /* Makes the heading large */
+      font-weight: bold;  /* Makes the text bold */
+      margin-bottom: 20px;  /* Adds space below the heading */
     }
 
     #testimonials h6 {
-      font-size: 18px;  
-      margin-bottom: 40px;  
-      color: #555;  
+      font-size: 18px;  /* Smaller font size for the subtitle */
+      margin-bottom: 40px;  /* Adds space below the subtitle */
+      color: #555;  /* Dark grey color for the text */
     }
 
+    /* Carousel Blockquote Styling */
     #quote-carousel blockquote {
-      font-style: italic;  
-      color: #333; 
+      font-style: italic;  /* Makes the quote text italic */
+      color: #333;  /* Darker color for the text */
+      padding: 20px 30px;  /* Adds padding inside the blockquote */
+      background-color: #fff;  /* White background for the quote */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow around the quote */
     }
 
-    #quote-carousel .carousel-inner {
-      background-color: #fff; 
-      padding: 30px;  
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
-    }
-
-   
+    /* Image Styling in the Testimonials */
     #quote-carousel .img-circle {
-      border: 3px solid #785612; 
-      padding: 5px; 
+      border: 3px solid #785612;  /* Adds a solid border around the images */
+      padding: 5px;  /* Adds space inside the border around the images */
+      margin-bottom: 20px;  /* Adds space below the image */
     }
 
-    
+    /* Styling for Carousel Indicators (the dots at the bottom) */
     .carousel-indicators li {
-      background-color: #785612; 
+      background-color: #785612;  /* Changes the color of the dots */
     }
   </style>
+
 
 </head>
 
@@ -395,7 +411,7 @@
     <h6>We are proud to have a diverse client base stretching from individuals to construction companies.</h6>
     
     <!-- Client Testimonials Carousel -->
-    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+    <div class="carousel slide" data-ride="carousel" id="quote-carousel" data-interval="5000">
       
       <!-- Bottom Carousel Indicators -->
       <ol class="carousel-indicators">
@@ -459,9 +475,8 @@
   </div> <!-- End of container -->
 </section>
 <!--/Testimonials-->
-
 	
-	<!--feedback-->
+<!--feedback-->
 
 <!--Footer-->
 <footer class="footer_wrapper" id="contact">
