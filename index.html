@@ -25,7 +25,7 @@
                         viridian: '#38A169',    // Brightened muted green
                     },
                     fontFamily: {
-                        heading: ['"Philosopher"', 'sans-serif'], // Art Nouveau but readable Botanical Font
+                        heading: ['"Playfair Display"', 'serif'], // Elegant Botanical Font
                         body: ['"Open Sans"', 'sans-serif'],
                     }
                 }
@@ -34,7 +34,7 @@
     </script>
 
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -167,8 +167,8 @@
     <!-- Hero Section -->
     <section id="hero_section" class="hero-bg min-h-[700px] mt-16 relative flex items-center justify-center">
         <div class="relative z-10 text-center px-4 fade-in-up">
-            <h2 class="text-4xl md:text-5xl lg:text-7xl text-white font-heading font-bold leading-tight mb-6 drop-shadow-lg">
-                Brick and Branch <br> <span class="italic font-normal">Botanical Landscaping</span> <br>
+            <h2 class="text-4xl md:text-5xl lg:text-7xl text-white font-heading font-normal leading-tight mb-6 drop-shadow-lg">
+                Brick and Branch <br> <span class="italic">Botanical Landscaping</span> <br>
                 <strong class="font-bold text-brandGold font-body text-3xl md:text-4xl block mt-4 tracking-wide uppercase">Design. Create. Maintain.</strong>
             </h2>
             <div class="title-underline"></div>
@@ -276,7 +276,8 @@
                         </li>
                     </ul>
                     
-                    <div class="p-6 bg-brandBg border-l-4 border-viridian shadow-sm">
+                    <!-- Fixed: Orange border (brandGold) with green text (viridian) -->
+                    <div class="p-6 bg-brandBg border-l-4 border-brandGold shadow-sm">
                         <p class="text-lg font-heading font-semibold text-[#222]">
                             I provide maintenance services at <span class="text-viridian font-bold text-2xl">£25</span> per hour, with competitive rates for waste removal based on your location.
                         </p>
@@ -359,12 +360,12 @@
                 <p class="text-[#888] font-body max-w-2xl mx-auto mb-12">Select a project below to open the full gallery and explore our transformations in detail.</p>
             </div>
             
-            <!-- Filters -->
+            <!-- Filters (Fixed hover state to prevent disappearing text on mobile touch) -->
             <div class="text-center mb-12 fade-in-up">
                 <ul id="portfolio-filters" class="inline-flex flex-wrap justify-center gap-2">
-                    <li><button data-filter="all" class="filter-btn active px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-brandGold text-white border border-brandGold transition-all">All Projects</button></li>
-                    <li><button data-filter="landscaping" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-white border border-[#ccc] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Hard Landscaping</button></li>
-                    <li><button data-filter="maintenance" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-white border border-[#ccc] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Maintenance & Flora</button></li>
+                    <li><button data-filter="all" class="filter-btn active px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm transition-all bg-brandGold text-white border border-brandGold hover:bg-brandGold hover:text-white hover:border-brandGold">All Projects</button></li>
+                    <li><button data-filter="landscaping" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm transition-all bg-white border border-[#ccc] text-[#7C7C7C] hover:bg-brandGold hover:text-white hover:border-brandGold">Hard Landscaping</button></li>
+                    <li><button data-filter="maintenance" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm transition-all bg-white border border-[#ccc] text-[#7C7C7C] hover:bg-brandGold hover:text-white hover:border-brandGold">Maintenance & Flora</button></li>
                 </ul>
             </div>
 
@@ -520,7 +521,7 @@
         <!-- Top White area with Worcester Skyline background SVG -->
         <div class="relative pt-24 pb-16 overflow-hidden">
             <!-- Subtle Worcester Skyline SVG filling the white space -->
-            <div class="absolute bottom-0 left-0 w-full h-[150px] md:h-[250px] pointer-events-none z-0 opacity-[0.08]">
+            <div class="absolute bottom-0 left-0 w-full h-[150px] md:h-[250px] pointer-events-none z-0 opacity-[0.09]">
                 <svg viewBox="0 0 1440 250" class="w-full h-full object-cover object-bottom" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                      <!-- Background Trees/Hills -->
                      <path d="M0 250 L0 160 Q200 140 400 170 T800 150 T1440 170 L1440 250 Z" fill="#2A3F2D" opacity="0.3"/>
