@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brick & Branch Botanical Landscaping | Hereford</title>
+    <title>Brick & Branch Botanical Landscaping | Kempsey & Worcester</title>
     <link rel="icon" href="favicon.png" type="image/png">
     
     <!-- Modern Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Configuration mapping exactly to your original scheme -->
+    <!-- Tailwind Configuration mapping exactly to your original scheme & new process colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -20,9 +20,12 @@
                         brandBlack: '#000000',  // Dark Sections
                         brandBg: '#f9f9f9',     // Light Backgrounds
                         footerBg: '#232323',    // Footer Background
+                        prussian: '#3182CE',    // Brightened muted blue
+                        royal: '#6B46C1',       // Brightened muted purple
+                        viridian: '#38A169',    // Brightened muted green
                     },
                     fontFamily: {
-                        heading: ['"Raleway"', 'sans-serif'],
+                        heading: ['"Philosopher"', 'sans-serif'], // Art Nouveau but readable Botanical Font
                         body: ['"Open Sans"', 'sans-serif'],
                     }
                 }
@@ -31,7 +34,7 @@
     </script>
 
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -45,9 +48,7 @@
         
         /* Hero Background */
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/slide-1.jpg') top center no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/slide-1.jpg') center/cover no-repeat;
         }
 
         /* Portfolio Hover Overlays */
@@ -77,7 +78,7 @@
             opacity: 1;
         }
 
-        /* Fade In Animations (Replaces WOW.js) */
+        /* Fade In Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -86,6 +87,18 @@
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Infinite Scroll Marquee for Affiliates */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
         }
 
         /* Custom Scrollbar */
@@ -106,41 +119,26 @@
 <body class="font-body text-[#888888] bg-white antialiased">
 
     <!-- Header Section -->
-    <header id="header_wrapper" class="fixed w-full z-50 transition-all duration-300 bg-brandDark shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-1">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#hero_section">
-                        <img src="img/logo.png" alt="Brick and Branch Logo" class="h-16 w-auto">
+    <header id="header_wrapper" class="fixed top-0 w-full z-50 transition-all duration-300 bg-brandDark shadow-lg h-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative">
+            <div class="flex justify-between items-center h-full">
+                
+                <!-- Overhanging Logo -->
+                <div class="flex-shrink-0 h-full w-24 relative">
+                    <a href="#" class="absolute top-1 left-0 z-50 block group">
+                        <img src="img/logo.png" alt="Brick and Branch Logo" class="h-20 w-auto rounded-full shadow-md group-hover:scale-105 transition-transform duration-300">
                     </a>
                 </div>
 
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-                    <a href="#hero_section" class="relative nav-link text-white hover:text-brandGold font-heading font-semibold uppercase text-sm tracking-wide transition-colors group py-2">
-                        Home
-                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandGold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    </a>
-                    <a href="#service" class="relative nav-link text-white hover:text-brandGold font-heading font-semibold uppercase text-sm tracking-wide transition-colors group py-2">
-                        Services
-                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandGold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    </a>
-                    <a href="#aboutUs" class="relative nav-link text-white hover:text-brandGold font-heading font-semibold uppercase text-sm tracking-wide transition-colors group py-2">
-                        About Us
-                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandGold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    </a>
-                    <a href="#Portfolio" class="relative nav-link text-white hover:text-brandGold font-heading font-semibold uppercase text-sm tracking-wide transition-colors group py-2">
-                        Portfolio
-                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandGold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    </a>
-                    <a href="#clients" class="relative nav-link text-white hover:text-brandGold font-heading font-semibold uppercase text-sm tracking-wide transition-colors group py-2">
-                        Clients
-                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandGold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    </a>
-                    <a href="#contact" class="ml-4 px-5 py-2 bg-brandGold text-brandDark font-heading font-bold uppercase text-sm tracking-wide rounded-sm shadow hover:bg-white hover:text-brandDark hover:-translate-y-0.5 transition-all duration-300">
-                        Contact
-                    </a>
+                    <a href="#" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">Home</a>
+                    <a href="#service" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">Services</a>
+                    <a href="#aboutUs" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">About Us</a>
+                    <a href="#process" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">Process</a>
+                    <a href="#Portfolio" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">Portfolio</a>
+                    <a href="#clients" class="nav-link text-white hover:text-brandGold font-body font-semibold uppercase text-sm tracking-wide transition-colors py-2">Clients</a>
+                    <a href="#contact" class="ml-2 px-6 py-2 bg-brandGold text-brandDark font-body font-bold uppercase text-sm tracking-wide rounded-sm shadow hover:bg-white hover:text-brandDark hover:-translate-y-0.5 transition-all duration-300">Contact</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -155,26 +153,27 @@
         <!-- Mobile Nav -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#5a400d] border-t border-white/10 shadow-inner">
             <div class="px-4 pt-2 pb-4 space-y-2 text-center">
-                <a href="#hero_section" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-heading uppercase text-sm font-semibold tracking-wide border-b border-white/5">Home</a>
-                <a href="#service" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-heading uppercase text-sm font-semibold tracking-wide border-b border-white/5">Services</a>
-                <a href="#aboutUs" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-heading uppercase text-sm font-semibold tracking-wide border-b border-white/5">About Us</a>
-                <a href="#Portfolio" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-heading uppercase text-sm font-semibold tracking-wide border-b border-white/5">Portfolio</a>
-                <a href="#clients" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-heading uppercase text-sm font-semibold tracking-wide border-b border-white/5">Clients</a>
-                <a href="#contact" class="mobile-link block px-3 py-3 text-brandGold font-heading uppercase text-sm font-bold tracking-wide">Contact</a>
+                <a href="#" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">Home</a>
+                <a href="#service" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">Services</a>
+                <a href="#aboutUs" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">About Us</a>
+                <a href="#process" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">Process</a>
+                <a href="#Portfolio" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">Portfolio</a>
+                <a href="#clients" class="mobile-link block px-3 py-3 text-white hover:text-brandGold font-body uppercase text-sm font-semibold tracking-wide border-b border-white/5">Clients</a>
+                <a href="#contact" class="mobile-link block px-3 py-3 text-brandGold font-body uppercase text-sm font-bold tracking-wide">Contact</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero_section" class="hero-bg h-[700px] relative flex items-center justify-center">
-        <div class="relative z-10 text-center px-4 fade-in-up mt-10">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-heading font-normal leading-tight mb-6 drop-shadow-lg">
-                Brick and Branch <br> Botanical Landscaping <br>
-                <strong class="font-bold text-brandGold block mt-2">Design. Create. Maintain.</strong>
+    <section id="hero_section" class="hero-bg min-h-[700px] mt-16 relative flex items-center justify-center">
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <h2 class="text-4xl md:text-5xl lg:text-7xl text-white font-heading font-bold leading-tight mb-6 drop-shadow-lg">
+                Brick and Branch <br> <span class="italic font-normal">Botanical Landscaping</span> <br>
+                <strong class="font-bold text-brandGold font-body text-3xl md:text-4xl block mt-4 tracking-wide uppercase">Design. Create. Maintain.</strong>
             </h2>
             <div class="title-underline"></div>
-            <!-- Scroll to Contact Form or open email directly -->
-            <a href="#contact" class="inline-block mt-4 px-10 py-4 bg-brandBlack text-white border border-white font-heading font-semibold uppercase tracking-widest rounded hover:bg-white hover:text-brandGold hover:border-white transition-all duration-300">
+            <!-- Scroll to Contact Form -->
+            <a href="#contact" class="inline-block mt-4 px-10 py-4 bg-brandBlack text-white border border-white font-body font-semibold uppercase tracking-widest rounded hover:bg-white hover:text-brandGold hover:border-white transition-all duration-300">
                 Contact Me
             </a>
         </div>
@@ -183,7 +182,7 @@
     <!-- Services Section -->
     <section id="service" class="py-24 bg-brandBlack">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
-            <h2 class="text-4xl font-heading text-white uppercase mb-4 tracking-wide">Services</h2>
+            <h2 class="text-4xl font-heading font-bold text-white uppercase mb-4 tracking-wide">Services</h2>
             <div class="title-underline"></div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
@@ -192,7 +191,7 @@
                     <div class="w-full aspect-[4/3] mx-auto border-2 border-white overflow-hidden mb-6 relative">
                         <img src="img/Brick Branch photos/Large Garden Maintainance/LGM (3).jpg" alt="Planting & Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='img/3.jpg'">
                     </div>
-                    <h3 class="font-heading font-semibold text-2xl text-white mb-4">Planting & Garden Maintenance</h3>
+                    <h3 class="font-heading font-bold text-2xl text-white mb-4">Planting & Garden Maintenance</h3>
                     <p class="text-[#cccccc] text-base leading-relaxed">
                         Lawn care, scarifying, reseeding, lawn mowing and strimming. <br>Hedge trimming, Tree pruning, Planting.
                     </p>
@@ -203,7 +202,7 @@
                     <div class="w-full aspect-[4/3] mx-auto border-2 border-brandGold overflow-hidden mb-6 relative">
                         <img src="img/2.jpg" alt="Landscaping" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <h3 class="font-heading font-semibold text-2xl text-white mb-4">Landscaping</h3>
+                    <h3 class="font-heading font-bold text-2xl text-white mb-4">Landscaping</h3>
                     <p class="text-[#cccccc] text-base leading-relaxed">
                         Paths Patios and Pagodas, <br>Fencing, Turfing and Water features.
                     </p>
@@ -214,7 +213,7 @@
                     <div class="w-full aspect-[4/3] mx-auto border-2 border-[#49b5e7] overflow-hidden mb-6 relative">
                         <img src="img/3.jpg" alt="Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <h3 class="font-heading font-semibold text-2xl text-white mb-4">Design</h3>
+                    <h3 class="font-heading font-bold text-2xl text-white mb-4">Design</h3>
                     <p class="text-[#cccccc] text-base leading-relaxed">
                         Garden design, Planting schemes, Soil science, Project budgeting, Project management.
                     </p>
@@ -228,19 +227,19 @@
         <img src="img/Greyscale_Logo_Brick_and_Branch final.png" class="absolute -right-20 top-20 w-96 opacity-5 pointer-events-none" alt="Background Graphic">
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up relative z-10">
-            <h2 class="text-4xl font-heading text-[#222] uppercase text-center mb-4 tracking-wide">About Us</h2>
+            <h2 class="text-4xl font-heading font-bold text-[#222] uppercase text-center mb-4 tracking-wide">About Us</h2>
             <div class="title-underline"></div>
             
-            <h6 class="text-lg text-[#888] font-body text-center max-w-4xl mx-auto mb-16 italic px-4">
+            <h6 class="text-xl text-[#888] font-heading text-center max-w-4xl mx-auto mb-16 italic px-4">
                 "At Brick and Branch, we transform gardens into beautiful, functional outdoor spaces, tailored to your unique needs and the local climate. Whether you’re looking for expert landscaping, vibrant planting schemes, or ongoing maintenance, we create gardens that thrive and bring you joy year-round."
             </h6>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Left Column -->
                 <div class="text-[#555]">
-                    <h3 class="text-2xl font-heading font-bold text-[#222] mb-6">Our Story</h3>
+                    <h3 class="text-3xl font-heading font-bold text-[#222] mb-6">Our Story</h3>
                     <p class="leading-relaxed mb-5">
-                        At Brick and Branch, we are dedicated to creating beautiful and functional outdoor spaces that enhance your home and garden. Based in Hereford, we specialize in hard landscaping to make your garden easy to navigate, enjoyable, and affordable. Whether you have a specific design in mind or want us to transform your garden from scratch, we’ll bring your vision to life.
+                        At Brick and Branch, we are dedicated to creating beautiful and functional outdoor spaces that enhance your home and garden. Based in Kempsey, we specialize in hard landscaping to make your garden easy to navigate, enjoyable, and affordable across Worcester and surrounding counties. Whether you have a specific design in mind or want us to transform your garden from scratch, we’ll bring your vision to life.
                     </p>
                     <p class="leading-relaxed mb-5">
                         But we don't stop at landscaping—we go beyond to create ecosystems that encourage local wildlife and birdlife. Our planting schemes are carefully tailored to unique climate and soil conditions, ensuring your garden flourishes year-round. Plus, we offer ongoing care and maintenance to keep your garden vibrant for years to come.
@@ -257,7 +256,7 @@
                 <div>
                     <img src="img/about-img.jpg" alt="About Us Garden" class="w-full h-64 object-cover rounded shadow-md mb-8" onerror="this.style.display='none'">
                     
-                    <h3 class="text-2xl font-heading font-bold text-[#222] mb-6">Garden Maintenance</h3>
+                    <h3 class="text-3xl font-heading font-bold text-[#222] mb-6">Garden Maintenance</h3>
                     <p class="leading-relaxed text-[#555] mb-6">
                         In addition to landscaping, we offer comprehensive garden maintenance services to keep your outdoor space in top shape. Our maintenance packages include regular lawn mowing, hedge trimming, scarifying, weeding, seasonal planting, and more. We’re happy to tailor our services to meet your specific needs, and we work hard to ensure everything is completed to the highest standard.
                     </p>
@@ -277,9 +276,9 @@
                         </li>
                     </ul>
                     
-                    <div class="p-6 bg-brandBg border-l-4 border-brandGold shadow-sm">
+                    <div class="p-6 bg-brandBg border-l-4 border-viridian shadow-sm">
                         <p class="text-lg font-heading font-semibold text-[#222]">
-                            I provide maintenance services at <span class="text-brandGold text-2xl">£25</span> per hour, with competitive rates for waste removal based on your location.
+                            I provide maintenance services at <span class="text-viridian font-bold text-2xl">£25</span> per hour, with competitive rates for waste removal based on your location.
                         </p>
                     </div>
                 </div>
@@ -287,11 +286,75 @@
         </div>
     </section>
 
+    <!-- Our Process Section -->
+    <section id="process" class="py-24 relative bg-brandBg border-t border-gray-200 overflow-hidden">
+        
+        <!-- Gentle Green 2D Representation of Malvern Hills -->
+        <div class="absolute bottom-0 left-0 w-full h-[40%] pointer-events-none z-0 flex items-end opacity-[0.15]">
+            <svg viewBox="0 0 1440 320" class="w-full h-full object-cover" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                 <!-- Back hills -->
+                 <path d="M0 200 C 200 150, 400 100, 600 150 C 800 200, 1000 80, 1440 180 L 1440 320 L 0 320 Z" fill="#789B73"/>
+                 <!-- Middle hills -->
+                 <path d="M0 250 C 300 180, 500 280, 800 200 C 1100 120, 1300 220, 1440 200 L 1440 320 L 0 320 Z" fill="#4B6B45"/>
+                 <!-- Front hills -->
+                 <path d="M0 300 C 400 220, 700 320, 1100 240 C 1300 200, 1440 280, 1440 280 L 1440 320 L 0 320 Z" fill="#2A3F2D"/>
+            </svg>
+        </div>
+
+        <!-- Subtly Blended Watermark (Centered again) -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none mix-blend-multiply">
+            <img src="img/Greyscale_Logo_Brick_and_Branch final.png" alt="Watermark" class="w-[800px] h-auto object-contain">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-bold text-[#222] uppercase mb-4 tracking-wide">Our Process</h2>
+                <div class="title-underline"></div>
+                <p class="text-[#888] font-body max-w-2xl mx-auto">Based in Kempsey, we provide a seamless landscaping experience across Worcester and surrounding counties. Here is how we bring your vision to life.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-[2px] bg-brandGold/30 z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="group relative z-10 text-center cursor-default">
+                    <div class="w-24 h-24 mx-auto bg-white border-[3px] border-brandGold text-brandGold rounded-full flex items-center justify-center text-3xl mb-6 shadow-md group-hover:bg-prussian group-hover:border-prussian group-hover:text-white transition-all duration-300 group-hover:-translate-y-2">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-[#222] mb-3 group-hover:text-prussian transition-colors duration-300">1. Site Visit & Design</h3>
+                    <p class="text-[#555] mb-4">We visit your property to discuss your vision, assess the terrain, and provide a tailored botanical design plan.</p>
+                    <div class="inline-block px-4 py-2 bg-blue-50 border border-blue-200 rounded text-sm font-bold text-prussian uppercase tracking-widest shadow-sm">Free Initial Quote</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="group relative z-10 text-center cursor-default">
+                    <div class="w-24 h-24 mx-auto bg-white border-[3px] border-brandGold text-brandGold rounded-full flex items-center justify-center text-3xl mb-6 shadow-md group-hover:bg-royal group-hover:border-royal group-hover:text-white transition-all duration-300 group-hover:-translate-y-2">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-[#222] mb-3 group-hover:text-royal transition-colors duration-300">2. The Build</h3>
+                    <p class="text-[#555] mb-4">Our expert team installs patios, woodwork, and plants with precision, transforming the space reliably and on schedule.</p>
+                    <div class="inline-block px-4 py-2 bg-purple-50 border border-purple-200 rounded text-sm font-bold text-royal uppercase tracking-widest shadow-sm">Est. £1,500 - £15,000+</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="group relative z-10 text-center cursor-default">
+                    <div class="w-24 h-24 mx-auto bg-white border-[3px] border-brandGold text-brandGold rounded-full flex items-center justify-center text-3xl mb-6 shadow-md group-hover:bg-viridian group-hover:border-viridian group-hover:text-white transition-all duration-300 group-hover:-translate-y-2">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-[#222] mb-3 group-hover:text-viridian transition-colors duration-300">3. Ongoing Care</h3>
+                    <p class="text-[#555] mb-4">We ensure your garden thrives year-round with our tailored maintenance packages, keeping your investment pristine.</p>
+                    <div class="inline-block px-4 py-2 bg-green-50 border border-green-200 rounded text-sm font-bold text-viridian uppercase tracking-widest shadow-sm">£25 / Hour</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Case Studies / Portfolio Section -->
-    <section id="Portfolio" class="py-24 bg-brandBg border-t border-gray-200">
+    <section id="Portfolio" class="py-24 bg-white border-t border-gray-200">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 fade-in-up">
-                <h2 class="text-4xl font-heading text-[#222] uppercase mb-4 tracking-wide">Project Galleries</h2>
+                <h2 class="text-4xl font-heading font-bold text-[#222] uppercase mb-4 tracking-wide">Project Galleries</h2>
                 <div class="title-underline"></div>
                 <p class="text-[#888] font-body max-w-2xl mx-auto mb-12">Select a project below to open the full gallery and explore our transformations in detail.</p>
             </div>
@@ -299,9 +362,9 @@
             <!-- Filters -->
             <div class="text-center mb-12 fade-in-up">
                 <ul id="portfolio-filters" class="inline-flex flex-wrap justify-center gap-2">
-                    <li><button data-filter="all" class="filter-btn active px-6 py-2.5 text-xs font-semibold tracking-wider uppercase rounded bg-brandGold text-white transition-all">All Projects</button></li>
-                    <li><button data-filter="landscaping" class="filter-btn px-6 py-2.5 text-xs font-semibold tracking-wider uppercase rounded bg-white border border-[#C2C2C2] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Hard Landscaping</button></li>
-                    <li><button data-filter="maintenance" class="filter-btn px-6 py-2.5 text-xs font-semibold tracking-wider uppercase rounded bg-white border border-[#C2C2C2] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Maintenance & Flora</button></li>
+                    <li><button data-filter="all" class="filter-btn active px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-brandGold text-white border border-brandGold transition-all">All Projects</button></li>
+                    <li><button data-filter="landscaping" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-white border border-[#ccc] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Hard Landscaping</button></li>
+                    <li><button data-filter="maintenance" class="filter-btn px-6 py-2.5 text-xs font-body font-bold tracking-wider uppercase rounded-sm bg-white border border-[#ccc] text-[#7C7C7C] hover:text-brandGold hover:border-brandGold transition-all">Maintenance & Flora</button></li>
                 </ul>
             </div>
 
@@ -319,7 +382,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Courtyards & Driveways</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Courtyards & Driveways</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">7 Photos</p>
                     </div>
                 </div>
@@ -335,7 +398,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Garden Clearances</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Garden Clearances</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">6 Photos</p>
                     </div>
                 </div>
@@ -351,7 +414,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Garden Maintenance</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Garden Maintenance</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">13 Photos</p>
                     </div>
                 </div>
@@ -367,7 +430,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Patios & Pathways</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Patios & Pathways</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">12 Photos</p>
                     </div>
                 </div>
@@ -383,7 +446,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Tiered Design</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Tiered Design</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">9 Photos</p>
                     </div>
                 </div>
@@ -399,13 +462,13 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Woodwork & Fencing</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Woodwork & Fencing</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">9 Photos</p>
                     </div>
                 </div>
 
-                <!-- Project 7: Flora & Stock -->
-                <div class="portfolio-item group cursor-pointer maintenance md:col-start-2 lg:col-start-auto" 
+                <!-- Project 7: Flora & Stock (Excluded from ALL via JS logic/class) -->
+                <div class="portfolio-item group cursor-pointer maintenance exclude-all md:col-start-2 lg:col-start-auto" 
                      data-gallery="img/Maintainence and hm stock photos/Bee Haven Flower Bed.jpg,img/Maintainence and hm stock photos/Butterfly & Bee.jpg,img/Maintainence and hm stock photos/Caligaric Mushrrom.jpg,img/Maintainence and hm stock photos/Clematis.jpg,img/Maintainence and hm stock photos/Dragon fly.jpg,img/Maintainence and hm stock photos/Fennel Flower.jpg,img/Maintainence and hm stock photos/Orchid.jpg,img/Brick Branch photos/Stock Photos/stock Thistle (Custom).jpeg,img/Brick Branch photos/Stock Photos/stock butterfkly (Custom).jpeg,img/Brick Branch photos/Stock Photos/stock flower (Custom).jpeg">
                     <div class="relative overflow-hidden aspect-[4/3] rounded shadow-sm bg-gray-200">
                         <img src="img/Maintainence and hm stock photos/Bee Haven Flower Bed.jpg" alt="Flora Cover" class="w-full h-full object-cover" onerror="this.src='img/3.jpg'">
@@ -415,7 +478,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <h4 class="text-brandBlack font-heading text-lg font-bold project-title">Flora & Wildlife</h4>
+                        <h4 class="text-brandBlack font-heading text-xl font-bold project-title">Flora & Wildlife</h4>
                         <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">10 Photos</p>
                     </div>
                 </div>
@@ -434,7 +497,7 @@
         <!-- Header -->
         <div class="absolute top-6 left-6 text-white z-50">
             <h3 id="lightbox-title" class="font-heading text-2xl font-bold uppercase tracking-wide">Gallery</h3>
-            <p id="lightbox-counter" class="text-brandGold font-semibold mt-1">1 / 1</p>
+            <p id="lightbox-counter" class="text-brandGold font-semibold mt-1 font-body">1 / 1</p>
         </div>
 
         <!-- Controls -->
@@ -452,19 +515,93 @@
     </div>
 
     <!-- Clients & Affiliates Section -->
-    <section id="clients" class="py-24 bg-white">
-        <h2 class="text-4xl font-heading text-[#222] uppercase text-center mb-6 tracking-wide fade-in-up">Affiliated Companies & Clients</h2>
-        <div class="title-underline fade-in-up"></div>
-        <p class="text-center text-[#888] font-body max-w-2xl mx-auto mb-12 fade-in-up">We are proud to work alongside trusted local partners to bring you the highest quality landscaping solutions.</p>
+    <section id="clients" class="bg-white border-t border-gray-200">
         
-        <div class="bg-brandGold py-16 fade-in-up">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Grid combining Affiliates and Logos -->
-                <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-16">
-                    <img src="img/Brick Branch photos/Affiliated Companies/Alan Barrat.jpg" alt="Alan Barrat" class="h-20 lg:h-24 object-contain shadow bg-white p-2 hover:-translate-y-1 transition-transform" onerror="this.style.display='none'">
-                    <img src="img/Brick Branch photos/Affiliated Companies/Artesian Designs - Paul Graham.jpg" alt="Artesian Designs" class="h-20 lg:h-24 object-contain shadow bg-white p-2 hover:-translate-y-1 transition-transform" onerror="this.style.display='none'">
-                    <img src="img/Brick Branch photos/Affiliated Companies/Lange Gardening - Lucas Lange.jpg" alt="Lange Gardening" class="h-20 lg:h-24 object-contain shadow bg-white p-2 hover:-translate-y-1 transition-transform" onerror="this.style.display='none'">
-                    <img src="img/Brick Branch photos/Affiliated Companies/Morris Anderson Construction Ltd.jpg" alt="Morris Anderson Construction" class="h-20 lg:h-24 object-contain shadow bg-white p-2 hover:-translate-y-1 transition-transform" onerror="this.style.display='none'">
+        <!-- Top White area with Worcester Skyline background SVG -->
+        <div class="relative pt-24 pb-16 overflow-hidden">
+            <!-- Subtle Worcester Skyline SVG filling the white space -->
+            <div class="absolute bottom-0 left-0 w-full h-[150px] md:h-[250px] pointer-events-none z-0 opacity-[0.08]">
+                <svg viewBox="0 0 1440 250" class="w-full h-full object-cover object-bottom" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                     <!-- Background Trees/Hills -->
+                     <path d="M0 250 L0 160 Q200 140 400 170 T800 150 T1440 170 L1440 250 Z" fill="#2A3F2D" opacity="0.3"/>
+                     
+                     <!-- Glover's Needle (St Andrew's Spire) on Left (x: 200) -->
+                     <polygon points="200,160 205,40 210,160" fill="#785612" opacity="0.7"/>
+                     <rect x="200" y="160" width="10" height="70" fill="#785612" opacity="0.7"/>
+
+                     <!-- Worcester Cathedral (Moved further Right Side to x: 1100) -->
+                     <!-- Main central tower -->
+                     <rect x="1150" y="50" width="70" height="120" fill="#785612" opacity="0.8"/>
+                     <!-- 4 pinnacles on tower -->
+                     <polygon points="1150,50 1153,30 1156,50" fill="#785612" opacity="0.8"/>
+                     <polygon points="1165,50 1168,35 1171,50" fill="#785612" opacity="0.8"/>
+                     <polygon points="1199,50 1202,35 1205,50" fill="#785612" opacity="0.8"/>
+                     <polygon points="1214,50 1217,30 1220,50" fill="#785612" opacity="0.8"/>
+                     <!-- Nave (Left) -->
+                     <rect x="1000" y="110" width="150" height="80" fill="#785612" opacity="0.8"/>
+                     <!-- Roof of Nave -->
+                     <polygon points="1000,110 1150,110 1150,90" fill="#785612" opacity="0.8"/>
+                     <!-- Quire (Right) -->
+                     <rect x="1220" y="120" width="120" height="70" fill="#785612" opacity="0.8"/>
+                     <!-- Roof of Quire -->
+                     <polygon points="1220,120 1340,120 1220,95" fill="#785612" opacity="0.8"/>
+                     
+                     <!-- General Cityscape elements for balance -->
+                     <rect x="350" y="150" width="80" height="80" fill="#785612" opacity="0.5"/>
+                     <polygon points="350,150 390,120 430,150" fill="#785612" opacity="0.5"/>
+                     
+                     <rect x="500" y="140" width="50" height="90" fill="#785612" opacity="0.6"/>
+                     <rect x="750" y="160" width="120" height="70" fill="#785612" opacity="0.5"/>
+                     
+                     <rect x="1380" y="130" width="60" height="100" fill="#785612" opacity="0.6"/>
+
+                     <!-- Foreground River Bank -->
+                     <path d="M0 210 L1440 210 L1440 250 L0 250 Z" fill="#2A3F2D" opacity="0.5"/>
+                     
+                     <!-- Stone Bridge over River Severn -->
+                     <path d="M0 215 L1440 215 L1440 235 L0 235 Z" fill="#EFB21D" opacity="0.7"/>
+                     
+                     <!-- Bridge Arches (cutout effect because of white background) -->
+                     <path d="M40 235 A70 40 0 0 1 180 235 Z" fill="#ffffff"/>
+                     <path d="M220 235 A70 40 0 0 1 360 235 Z" fill="#ffffff"/>
+                     <path d="M400 235 A70 40 0 0 1 540 235 Z" fill="#ffffff"/>
+                     <path d="M580 235 A70 40 0 0 1 720 235 Z" fill="#ffffff"/>
+                     <path d="M760 235 A70 40 0 0 1 900 235 Z" fill="#ffffff"/>
+                     <path d="M940 235 A70 40 0 0 1 1080 235 Z" fill="#ffffff"/>
+                     <path d="M1120 235 A70 40 0 0 1 1260 235 Z" fill="#ffffff"/>
+                     <path d="M1300 235 A70 40 0 0 1 1440 235 Z" fill="#ffffff"/>
+                </svg>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in-up">
+                <h2 class="text-4xl font-heading font-bold text-[#222] uppercase text-center mb-6 tracking-wide">Affiliated Companies & Clients</h2>
+                <div class="title-underline"></div>
+                <p class="text-center text-[#888] font-body max-w-2xl mx-auto">We are proud to work alongside trusted local partners to bring you the highest quality landscaping solutions.</p>
+            </div>
+        </div>
+        
+        <!-- Bottom Gold Area - Infinite Marquee Carousel -->
+        <div class="bg-brandGold py-16 relative z-10 fade-in-up overflow-hidden">
+            <div class="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Carousel Container -->
+                <div class="relative w-full overflow-hidden group">
+                    <div class="flex animate-marquee gap-12 lg:gap-24 items-center whitespace-nowrap">
+                        <!-- Set 1 -->
+                        <img src="img/Brick Branch photos/Affiliated Companies/Alan Barrat.jpg" alt="Alan Barrat" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Artesian Designs - Paul Graham.jpg" alt="Artesian Designs" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Lange Gardening - Lucas Lange.jpg" alt="Lange Gardening" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Morris Anderson Construction Ltd.jpg" alt="Morris Anderson Construction" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <!-- Set 2 (for infinite loop illusion) -->
+                        <img src="img/Brick Branch photos/Affiliated Companies/Alan Barrat.jpg" alt="Alan Barrat" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Artesian Designs - Paul Graham.jpg" alt="Artesian Designs" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Lange Gardening - Lucas Lange.jpg" alt="Lange Gardening" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Morris Anderson Construction Ltd.jpg" alt="Morris Anderson Construction" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <!-- Set 3 -->
+                        <img src="img/Brick Branch photos/Affiliated Companies/Alan Barrat.jpg" alt="Alan Barrat" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Artesian Designs - Paul Graham.jpg" alt="Artesian Designs" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Lange Gardening - Lucas Lange.jpg" alt="Lange Gardening" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                        <img src="img/Brick Branch photos/Affiliated Companies/Morris Anderson Construction Ltd.jpg" alt="Morris Anderson Construction" class="h-32 lg:h-40 w-auto object-contain shadow-lg bg-white p-3 rounded hover:-translate-y-2 transition-transform cursor-pointer" onerror="this.style.display='none'">
+                    </div>
                 </div>
             </div>
         </div>
@@ -473,7 +610,7 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-24 bg-brandBg text-center">
         <div class="max-w-4xl mx-auto px-4 fade-in-up">
-            <h2 class="text-4xl font-heading text-[#222] uppercase mb-4 tracking-wide">What Our Clients Say</h2>
+            <h2 class="text-4xl font-heading font-bold text-[#222] uppercase mb-4 tracking-wide">What Our Clients Say</h2>
             <div class="title-underline"></div>
             <h6 class="text-lg text-[#555] font-body mb-16">We are proud to have a diverse client base stretching from individuals to construction companies.</h6>
             
@@ -482,12 +619,12 @@
                 
                 <!-- Testimonial 1 -->
                 <div class="carousel-item active">
-                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold">
+                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold rounded">
                         <div class="flex flex-col sm:flex-row items-center gap-6">
                             <img class="w-[100px] h-[100px] object-cover rounded-full border-[3px] border-[#785612] p-1" src="img/team_pic1.jpg" alt="Christopher Farmer" onerror="this.src='https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg'">
                             <div>
                                 <p class="text-lg mb-4 text-[#555] leading-relaxed">"I manage several large estates across Europe, and I exclusively trust Brick & Branch with their care. Their impeccable attention to detail and ability to maintain the highest standards across diverse climates is simply unmatched."</p>
-                                <small class="text-brandGold font-bold not-italic text-sm">- Christopher Farmer, Head of Legal and Compliance</small>
+                                <small class="text-brandGold font-bold not-italic text-sm font-body uppercase tracking-wider">- Christopher Farmer, Head of Legal and Compliance</small>
                             </div>
                         </div>
                     </blockquote>
@@ -495,12 +632,12 @@
 
                 <!-- Testimonial 2 -->
                 <div class="carousel-item">
-                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold">
+                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold rounded">
                         <div class="flex flex-col sm:flex-row items-center gap-6">
                             <img class="w-[100px] h-[100px] object-contain bg-white rounded-full border-[3px] border-[#785612] p-1" src="img/Brick Branch photos/Affiliated Companies/Morris Anderson Construction Ltd.jpg" alt="Matt Morris" onerror="this.src='img/team_pic2.jpg'">
                             <div>
                                 <p class="text-lg mb-4 text-[#555] leading-relaxed">"Running Morris Anderson Construction means we need partners who deliver reliably high performance and constant graft. Brick & Branch never misses a beat. They come in, work incredibly hard, and consistently deliver flawless landscaping that elevates our builds."</p>
-                                <small class="text-brandGold font-bold not-italic text-sm">- Matt Morris, Director, Morris Anderson Construction</small>
+                                <small class="text-brandGold font-bold not-italic text-sm font-body uppercase tracking-wider">- Matt Morris, Director, Morris Anderson Construction</small>
                             </div>
                         </div>
                     </blockquote>
@@ -508,12 +645,12 @@
 
                 <!-- Testimonial 3 -->
                 <div class="carousel-item">
-                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold">
+                    <blockquote class="bg-white p-8 shadow-md text-left italic text-[#333] border-t-4 border-brandGold rounded">
                         <div class="flex flex-col sm:flex-row items-center gap-6">
                             <img class="w-[100px] h-[100px] object-cover rounded-full border-[3px] border-[#785612] p-1" src="img/team_pic3.jpg" alt="Zackery Robinson" onerror="this.src='https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg'">
                             <div>
                                 <p class="text-lg mb-4 text-[#555] leading-relaxed">"When preparing venues for major international events on mid-to-short notice, failure isn't an option. Brick & Branch possesses an exceptional level of botanical knowledge and landscaping execution. They transform spaces rapidly under immense pressure, delivering world-class results every time."</p>
-                                <small class="text-brandGold font-bold not-italic text-sm">- Zackery Robinson, Multinational CEO</small>
+                                <small class="text-brandGold font-bold not-italic text-sm font-body uppercase tracking-wider">- Zackery Robinson, Multinational CEO</small>
                             </div>
                         </div>
                     </blockquote>
@@ -530,25 +667,28 @@
     </section>
 
     <!-- Footer / Contact Section -->
-    <footer id="contact" class="bg-footerBg pt-24 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="contact" class="bg-footerBg pt-24 pb-8 relative overflow-hidden">
+        <!-- Giant Pale Watermark Logo -->
+        <img src="img/Brick Branch photos/LOGO no text.png" alt="" class="absolute -right-20 top-0 h-[600px] md:h-[800px] w-auto opacity-[0.04] pointer-events-none z-0" onerror="this.style.display='none'">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="mb-16 fade-in-up">
-                <h2 class="text-4xl font-heading text-white uppercase mb-12 tracking-wide">Contact Us</h2>
+                <h2 class="text-4xl font-heading font-bold text-white uppercase mb-12 tracking-wide">Contact Us</h2>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <!-- Contact Info -->
                     <div class="lg:col-span-1">
                         <div class="mb-8">
                             <h4 class="text-white font-heading font-semibold text-xl mb-2">Brick & Branch Landscaping Ltd</h4>
-                            <p class="text-[#cccccc] leading-loose">25, Church street, Kempsey, Worcestershire, UK<br> WR5 3JQ</p>
+                            <p class="text-[#cccccc] font-body leading-loose">25, Church street, Kempsey, Worcestershire, UK<br> WR5 3JQ</p>
                         </div>
                         <div class="mb-8">
                             <h4 class="text-white font-heading font-semibold text-xl mb-2">Call us</h4>
-                            <p class="text-[#cccccc]">(+44) 07 562 332 846</p>
+                            <p class="text-[#cccccc] font-body">(+44) 07 562 332 846</p>
                         </div>
                         <div class="mb-8">
                             <h4 class="text-white font-heading font-semibold text-xl mb-2">Email us</h4>
-                            <p class="text-[#cccccc]"><a href="mailto:brook_tim@hotmail.co.uk" class="hover:text-brandGold transition-colors">brook_tim@hotmail.co.uk</a></p>
+                            <p class="text-[#cccccc] font-body"><a href="mailto:brook_tim@hotmail.co.uk" class="hover:text-brandGold transition-colors">brook_tim@hotmail.co.uk</a></p>
                         </div>
 
                         <!-- Social Links -->
@@ -563,7 +703,7 @@
                     <!-- Contact Form -->
                     <div class="lg:col-span-2">
                         <!-- Using FormSubmit to send emails directly without opening an email client -->
-                        <form action="https://formsubmit.co/brook_tim@hotmail.co.uk" method="POST" class="space-y-4">
+                        <form action="https://formsubmit.co/brook_tim@hotmail.co.uk" method="POST" class="space-y-4 font-body">
                             <!-- Disables the captcha step for a smoother user experience -->
                             <input type="hidden" name="_captcha" value="false">
                             <input type="text" name="Name" placeholder="Your Name *" required class="w-full h-12 px-4 bg-transparent border border-[#ccc] rounded text-[#aaa] focus:border-white focus:outline-none focus:shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all">
@@ -578,7 +718,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-[#3C3A3A] pt-6 text-center">
+            <div class="border-t border-[#3C3A3A] pt-6 text-center font-body">
                 <span class="text-[#cccccc] text-sm">
                     Copyright © 2024, Brick & Branch Botanical Landscaping.
                 </span>
@@ -623,16 +763,23 @@
                 btn.addEventListener('click', () => {
                     // Update active button styles
                     filterBtns.forEach(b => {
-                        b.classList.remove('active', 'bg-brandGold', 'text-white', 'border-transparent');
-                        b.classList.add('bg-white', 'border-[#C2C2C2]', 'text-[#7C7C7C]');
+                        b.classList.remove('active', 'bg-brandGold', 'text-white', 'border-brandGold');
+                        b.classList.add('bg-white', 'border-[#ccc]', 'text-[#7C7C7C]');
                     });
-                    btn.classList.add('active', 'bg-brandGold', 'text-white', 'border-transparent');
-                    btn.classList.remove('bg-white', 'border-[#C2C2C2]', 'text-[#7C7C7C]');
+                    btn.classList.add('active', 'bg-brandGold', 'text-white', 'border-brandGold');
+                    btn.classList.remove('bg-white', 'border-[#ccc]', 'text-[#7C7C7C]');
 
                     // Filter logic
                     const filterValue = btn.getAttribute('data-filter');
                     portfolioItems.forEach(item => {
-                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        if (filterValue === 'all') {
+                            // If "All", show item ONLY if it doesn't have the 'exclude-all' class
+                            if (!item.classList.contains('exclude-all')) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        } else if (item.classList.contains(filterValue)) {
                             item.style.display = 'block';
                         } else {
                             item.style.display = 'none';
@@ -640,6 +787,9 @@
                     });
                 });
             });
+
+            // Initialize "All Projects"
+            document.querySelector('[data-filter="all"]').click();
 
             // --- 4. Portfolio Lightbox Logic ---
             const lightbox = document.getElementById('lightbox');
